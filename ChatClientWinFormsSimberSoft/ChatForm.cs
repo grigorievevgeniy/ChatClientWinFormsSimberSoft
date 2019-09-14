@@ -51,7 +51,7 @@ namespace ChatClientWinFormsSimberSoft
 
         private void NewMessage(object state)
         {
-            tbChat.Text += state.ToString() + "\r\n";
+            tbChat.Text = state.ToString() + "\r\n" + tbChat.Text;
         }
 
     }
