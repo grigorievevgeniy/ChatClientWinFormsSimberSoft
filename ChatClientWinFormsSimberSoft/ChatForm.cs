@@ -19,14 +19,15 @@ namespace ChatClientWinFormsSimberSoft
 
         public ChatForm()
         {
-            InitializeComponent();
-
-            SynchronizationContext uiContext = SynchronizationContext.Current;
-
             // Авторизация пользователя
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
 
+            InitializeComponent();
+
+            // Контекст потока UI 
+            SynchronizationContext uiContext = SynchronizationContext.Current;
+            
             string url = @"http://localhost:8080/";
             var connection = new HubConnection(url);
             _hub = connection.CreateHubProxy("MessageHub");
