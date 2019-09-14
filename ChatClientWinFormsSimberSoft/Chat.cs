@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace ChatClientWinFormsSimberSoft
 {
-    public partial class Form1 : Form
+    public partial class Chat : Form
     {
         IHubProxy _hub;
 
-        public Form1()
+        public Chat()
         {
             InitializeComponent();
 

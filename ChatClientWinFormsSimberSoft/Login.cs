@@ -16,5 +16,10 @@ namespace ChatClientWinFormsSimberSoft
         {
             InitializeComponent();
         }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
