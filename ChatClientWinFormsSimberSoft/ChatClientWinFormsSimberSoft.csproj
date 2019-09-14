@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0BCF6956-CBFD-4CE7-97F1-8BB81E7C82F8}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>ChatClientWinFormsSimberSoft</RootNamespace>
     <AssemblyName>ChatClientWinFormsSimberSoft</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

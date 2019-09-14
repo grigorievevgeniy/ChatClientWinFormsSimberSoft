@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,31 +20,34 @@ namespace ChatClientWinFormsSimberSoft
         {
             InitializeComponent();
 
+            SynchronizationContext uiContext = SynchronizationContext.Current;
+
             string url = @"http://localhost:8080/";
             var connection = new HubConnection(url);
             _hub = connection.CreateHubProxy("TestHub");
             connection.Start().Wait();
 
             //_hub.On("ReceiveLength", x => Console.WriteLine(x));
-            _hub.On("ReceiveLength", x => NewMessage(x.ToString()));
+            //_hub.On("ReceiveLength", x => NewMessage(x.ToString()));
+
+            _hub.On("ReceiveLength", x => uiContext.Post(s => NewMessage(x), null));
         }
 
-        private void btnSend_Click(object sender, EventArgs e)
+        private async void btnSend_Click(object sender, EventArgs e)
         {
-            tbChat.Text = "Normal";
-
             string line = null;
-            while ((line = tbInputText.Text) != null)
+            if ((line = tbInputText.Text) != null)
             {
-                _hub.Invoke("SameMetod", line).Wait();
+                await _hub.Invoke("SameMetod", line);
             }
 
             tbInputText.Text = null;
         }
 
-        private void NewMessage(string message)
+        private void NewMessage(object state)
         {
-            tbChat.Text += message;
+            tbChat.Text += state.ToString() + "\r\n";
         }
+
     }
 }
