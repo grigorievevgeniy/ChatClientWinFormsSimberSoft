@@ -83,6 +83,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(128, 163);
+            this.ControlBox = false;
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -90,7 +91,7 @@
             this.Controls.Add(this.tbLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
-            this.Text = "Login";
+            this.Text = "*** Чат SimberSoft ***";
             this.ResumeLayout(false);
             this.PerformLayout();
 
