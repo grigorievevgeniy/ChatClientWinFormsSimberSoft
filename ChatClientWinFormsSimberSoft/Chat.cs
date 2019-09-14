@@ -15,12 +15,17 @@ namespace ChatClientWinFormsSimberSoft
     public partial class Chat : Form
     {
         IHubProxy _hub;
+        internal static string NameUser;
 
         public Chat()
         {
             InitializeComponent();
 
             SynchronizationContext uiContext = SynchronizationContext.Current;
+
+            // Авторизация пользователя
+            Login loginForm = new Login();
+            loginForm.ShowDialog();
 
             string url = @"http://localhost:8080/";
             var connection = new HubConnection(url);
