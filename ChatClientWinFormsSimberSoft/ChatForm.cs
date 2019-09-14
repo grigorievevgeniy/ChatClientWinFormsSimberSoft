@@ -29,7 +29,7 @@ namespace ChatClientWinFormsSimberSoft
 
             string url = @"http://localhost:8080/";
             var connection = new HubConnection(url);
-            _hub = connection.CreateHubProxy("TestHub");
+            _hub = connection.CreateHubProxy("MessageHub");
             connection.Start().Wait();
 
             //_hub.On("ReceiveLength", x => Console.WriteLine(x));
@@ -43,7 +43,7 @@ namespace ChatClientWinFormsSimberSoft
             string message = null;
             if ((message = tbInputText.Text) != null)
             {
-                await _hub.Invoke("SameMetod", NameUser, message);
+                await _hub.Invoke("SendMessage", NameUser, message);
             }
 
             tbInputText.Text = null;
