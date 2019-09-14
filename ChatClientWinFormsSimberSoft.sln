@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatClientWinFormsSimberSoft", "ChatClientWinFormsSimberSoft\ChatClientWinFormsSimberSoft.csproj", "{0BCF6956-CBFD-4CE7-97F1-8BB81E7C82F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BCF6956-CBFD-4CE7-97F1-8BB81E7C82F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BCF6956-CBFD-4CE7-97F1-8BB81E7C82F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BCF6956-CBFD-4CE7-97F1-8BB81E7C82F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BCF6956-CBFD-4CE7-97F1-8BB81E7C82F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23440AEC-531F-4BAD-A1C4-3ED23B18BA44}
+	EndGlobalSection
+EndGlobal
