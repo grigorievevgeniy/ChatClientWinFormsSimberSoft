@@ -12,19 +12,19 @@ using System.Windows.Forms;
 
 namespace ChatClientWinFormsSimberSoft
 {
-    public partial class Chat : Form
+    public partial class ChatForm : Form
     {
         IHubProxy _hub;
         internal static string NameUser;
 
-        public Chat()
+        public ChatForm()
         {
             InitializeComponent();
 
             SynchronizationContext uiContext = SynchronizationContext.Current;
 
             // Авторизация пользователя
-            Login loginForm = new Login();
+            LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
 
             string url = @"http://localhost:8080/";
@@ -40,10 +40,10 @@ namespace ChatClientWinFormsSimberSoft
 
         private async void btnSend_Click(object sender, EventArgs e)
         {
-            string line = null;
-            if ((line = tbInputText.Text) != null)
+            string message = null;
+            if ((message = tbInputText.Text) != null)
             {
-                await _hub.Invoke("SameMetod", line);
+                await _hub.Invoke("SameMetod", NameUser, message);
             }
 
             tbInputText.Text = null;

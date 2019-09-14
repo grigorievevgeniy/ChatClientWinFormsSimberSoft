@@ -1,6 +1,6 @@
 ﻿namespace ChatClientWinFormsSimberSoft
 {
-    partial class Chat
+    partial class ChatForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.

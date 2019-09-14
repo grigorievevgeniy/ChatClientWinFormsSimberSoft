@@ -33,7 +33,7 @@ namespace ChatClientWinFormsSimberSoft
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Chat());
+            Application.Run(new ChatForm());
         }
     }
 }

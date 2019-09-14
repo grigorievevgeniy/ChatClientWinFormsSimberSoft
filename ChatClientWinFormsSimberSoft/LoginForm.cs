@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace ChatClientWinFormsSimberSoft
 {
-    public partial class Login : Form
+    public partial class LoginForm : Form
     {
-        public Login()
+        public LoginForm()
         {
             InitializeComponent();
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            Chat.NameUser = tbLogin.Text;
+            ChatForm.NameUser = tbLogin.Text;
 
             // TODO: проверка пустого поля, дублирование логина, максимальная длина...
 
