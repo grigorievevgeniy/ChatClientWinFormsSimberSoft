@@ -19,11 +19,14 @@ namespace ChatClientWinFormsSimberSoft
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            ChatForm.NameUser = tbLogin.Text;
-
             // TODO: проверка пустого поля, дублирование логина, максимальная длина...
+            if (tbLogin.Text != "")
+            {
+                ChatForm.NameUser = tbLogin.Text;
 
-            Close();
+
+                Close();
+            }
         }
     }
 }

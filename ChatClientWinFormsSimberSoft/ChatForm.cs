@@ -33,9 +33,6 @@ namespace ChatClientWinFormsSimberSoft
             _hub = connection.CreateHubProxy("MessageHub");
             connection.Start().Wait();
 
-            //_hub.On("ReceiveLength", x => Console.WriteLine(x));
-            //_hub.On("ReceiveLength", x => NewMessage(x.ToString()));
-
             _hub.On("ReceiveLength", x => uiContext.Post(s => NewMessage(x), null));
         }
 

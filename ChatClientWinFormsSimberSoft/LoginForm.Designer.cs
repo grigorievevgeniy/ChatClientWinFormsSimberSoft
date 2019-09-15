@@ -39,6 +39,7 @@
             // tbLogin
             // 
             this.tbLogin.Location = new System.Drawing.Point(12, 25);
+            this.tbLogin.MaxLength = 12;
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(107, 20);
             this.tbLogin.TabIndex = 0;
@@ -80,6 +81,7 @@
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(128, 163);
