@@ -15,22 +15,6 @@ namespace ChatClientWinFormsSimberSoft
         [STAThread]
         static void Main()
         {
-            //IHubProxy _hub;
-            //string url = @"http://localhost:8080/";
-            //var connection = new HubConnection(url);
-            //_hub = connection.CreateHubProxy("TestHub");
-            //connection.Start().Wait();
-
-            //_hub.On("ReceiveLength", x => Console.WriteLine(x));
-
-            //string line = null;
-            //while ((line = System.Console.ReadLine()) != null)
-            //{
-            //    _hub.Invoke("SameMetod", line).Wait();
-            //}
-
-            //Console.Read();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ChatForm());
