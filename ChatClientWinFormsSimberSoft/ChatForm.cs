@@ -14,8 +14,8 @@ namespace ChatClientWinFormsSimberSoft
 {
     public partial class ChatForm : Form
     {
-        IHubProxy _hub;
         internal static string NameUser;
+        Connect connect = new Connect();
 
         public ChatForm()
         {
@@ -27,21 +27,30 @@ namespace ChatClientWinFormsSimberSoft
 
             // Контекст потока UI 
             SynchronizationContext uiContext = SynchronizationContext.Current;
-            
-            string url = @"http://localhost:8080/";
-            var connection = new HubConnection(url);
-            _hub = connection.CreateHubProxy("MessageHub");
-            connection.Start().Wait();
 
-            _hub.On("ReceiveLength", x => uiContext.Post(s => NewMessage(x), null));
+            //_hub.Invoke("Connect", NameUser);
+
+            connect.hub.On("ReceiveLength", x => uiContext.Post(s => NewMessage(x), null));
         }
 
         private async void btnSend_Click(object sender, EventArgs e)
         {
+            
             string message = null;
             if ((message = tbInputText.Text) != null)
             {
-                await _hub.Invoke("SendMessage", NameUser, message);
+                await connect.hub.Invoke("SendMessage", NameUser, message);
+            }
+
+            tbInputText.Text = null;
+        }
+
+        private async void SendOldMessage(object sender, EventArgs e)
+        {
+            string message = null;
+            if ((message = tbInputText.Text) != null)
+            {
+                await connect.hub.Invoke("SendMessage", NameUser, message);
             }
 
             tbInputText.Text = null;
