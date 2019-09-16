@@ -28,7 +28,7 @@ namespace ChatClientWinFormsSimberSoft
             // Контекст потока UI 
             SynchronizationContext uiContext = SynchronizationContext.Current;
 
-            //_hub.Invoke("Connect", NameUser);
+            connect.hub.Invoke("Connect", NameUser);
 
             connect.hub.On("ReceiveLength", x => uiContext.Post(s => NewMessage(x), null));
         }
