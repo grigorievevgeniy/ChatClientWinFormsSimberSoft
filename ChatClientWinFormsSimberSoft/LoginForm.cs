@@ -28,5 +28,11 @@ namespace ChatClientWinFormsSimberSoft
                 Close();
             }
         }
+
+        private void btnRegistration_Click(object sender, EventArgs e)
+        {
+            // TODO: отправка POST запроса на сервер с регистрационными данными
+            // проверка на дублирование логина
+        }
     }
 }
