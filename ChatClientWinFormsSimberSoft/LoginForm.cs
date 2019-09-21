@@ -95,15 +95,16 @@ namespace ChatClientWinFormsSimberSoft
                     using (StreamReader reader = new StreamReader(stream))
                     {
                         otvetServera = reader.ReadToEnd();
-                        MessageForm messageForm = new MessageForm(otvetServera);
-                        messageForm.ShowDialog();
                     }
                 }
 
+                AuthResponse authResponse = JsonConvert.DeserializeObject<AuthResponse>(otvetServera);
 
+                MessageForm messageForm = new MessageForm(authResponse.Message);
+                messageForm.ShowDialog();
 
-                //AuthResponse authResponse = JsonConvert.DeserializeObject<AuthResponse>(otvetServera);
-
+                tbLogin.Text = tbLoginForRegistration.Text;
+                tbPassword.Text = tbPasswordForRegistration.Text;
 
             }
         }
