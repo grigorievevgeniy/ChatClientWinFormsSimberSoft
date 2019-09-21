@@ -59,37 +59,49 @@ namespace ChatClientWinFormsSimberSoft
             }
         }
 
-        private void btnRegistration_Click(object sender, EventArgs e)
+        private async void btnRegistration_Click(object sender, EventArgs e)
         {
-            string url = "https://localhost:44303/Account/Register";
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "POST";
-            string body = "email=" + tbLoginForRegistration.Text + "&password=" + tbPasswordForRegistration.Text;
-            byte[] byteArray = Encoding.UTF8.GetBytes(body);
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = byteArray.Length;
-            request.GetRequestStream();
-
-            using (Stream dataStream = request.GetRequestStream())
+            if(tbLoginForRegistration.Text == "")
             {
-                dataStream.Write(byteArray, 0, byteArray.Length);
+                Error errorForm = new Error("Заполните поле Email");
+                errorForm.ShowDialog();
             }
-
-            string otvetServera;
-            HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync();
-            using (Stream stream = response.GetResponseStream())
+            else if(tbPasswordForRegistration.Text != tbConfirmPasswordForRegistration.Text)
             {
-                using (StreamReader reader = new StreamReader(stream))
+                Error errorForm = new Error("Пароль и его подтвержения разные");
+                errorForm.ShowDialog();
+            }
+            else
+            {
+                string url = "https://localhost:44303/Account/Register";
+
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = "POST";
+                string body = "email=" + tbLoginForRegistration.Text + "&password=" + tbPasswordForRegistration.Text;
+                byte[] byteArray = Encoding.UTF8.GetBytes(body);
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = byteArray.Length;
+                request.GetRequestStream();
+
+                using (Stream dataStream = request.GetRequestStream())
                 {
-                    otvetServera = reader.ReadToEnd();
+                    dataStream.Write(byteArray, 0, byteArray.Length);
                 }
+
+                string otvetServera;
+                HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync();
+                using (Stream stream = response.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        otvetServera = reader.ReadToEnd();
+                    }
+                }
+
+                //AuthResponse authResponse = JsonConvert.DeserializeObject<AuthResponse>(otvetServera);
+
+
             }
-
-            AuthResponse authResponse = JsonConvert.DeserializeObject<AuthResponse>(otvetServera);
-
-            ChatForm.Token = authResponse.Token;
-
         }
     }
 }
