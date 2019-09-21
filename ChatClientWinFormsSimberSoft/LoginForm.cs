@@ -95,8 +95,12 @@ namespace ChatClientWinFormsSimberSoft
                     using (StreamReader reader = new StreamReader(stream))
                     {
                         otvetServera = reader.ReadToEnd();
+                        MessageForm messageForm = new MessageForm(otvetServera);
+                        messageForm.ShowDialog();
                     }
                 }
+
+
 
                 //AuthResponse authResponse = JsonConvert.DeserializeObject<AuthResponse>(otvetServera);
 
