@@ -142,6 +142,7 @@
             this.btnRegistration.TabIndex = 7;
             this.btnRegistration.Text = "Регистрация";
             this.btnRegistration.UseVisualStyleBackColor = true;
+            this.btnRegistration.Click += new System.EventHandler(this.btnRegistration_Click);
             // 
             // tbLoginForRegistration
             // 

@@ -58,5 +58,38 @@ namespace ChatClientWinFormsSimberSoft
                 Close();
             }
         }
+
+        private void btnRegistration_Click(object sender, EventArgs e)
+        {
+            string url = "https://localhost:44303/Account/Register";
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            string body = "email=" + tbLoginForRegistration.Text + "&password=" + tbPasswordForRegistration.Text;
+            byte[] byteArray = Encoding.UTF8.GetBytes(body);
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = byteArray.Length;
+            request.GetRequestStream();
+
+            using (Stream dataStream = request.GetRequestStream())
+            {
+                dataStream.Write(byteArray, 0, byteArray.Length);
+            }
+
+            string otvetServera;
+            HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync();
+            using (Stream stream = response.GetResponseStream())
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    otvetServera = reader.ReadToEnd();
+                }
+            }
+
+            AuthResponse authResponse = JsonConvert.DeserializeObject<AuthResponse>(otvetServera);
+
+            ChatForm.Token = authResponse.Token;
+
+        }
     }
 }
