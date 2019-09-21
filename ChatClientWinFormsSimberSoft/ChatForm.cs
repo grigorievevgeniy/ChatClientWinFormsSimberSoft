@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.SignalR.Client;
+﻿using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +14,10 @@ namespace ChatClientWinFormsSimberSoft
 {
     public partial class ChatForm : Form
     {
-        IHubProxy _hub;
+        //IHubProxy _hub;
+        HubConnection connection;
         internal static string NameUser;
+        internal static string Token;
 
         public ChatForm()
         {
@@ -27,13 +29,31 @@ namespace ChatClientWinFormsSimberSoft
 
             // Контекст потока UI 
             SynchronizationContext uiContext = SynchronizationContext.Current;
-            
-            string url = @"http://localhost:8080/";
-            var connection = new HubConnection(url);
-            _hub = connection.CreateHubProxy("MessageHub");
-            connection.Start().Wait();
 
-            _hub.On("ReceiveLength", x => uiContext.Post(s => NewMessage(x), null));
+            string url = @"https://localhost:44303/chatHub";
+
+            //connection = new HubConnectionBuilder()
+            //    .WithUrl("http://localhost:53353/ChatHub")
+            //    .Build();
+
+            //connection.Closed += async (error) =>
+            //{
+            //    await Task.Delay(new Random().Next(0, 5) * 1000);
+            //    await connection.StartAsync();
+            //};
+            
+            connection = new HubConnectionBuilder()
+                .WithUrl(url, options =>
+                {
+                    options.AccessTokenProvider = () => Task.FromResult(Token);
+                })
+                .Build();
+
+            connection.StartAsync();
+
+            //_hub.Invoke("Connect", NameUser);
+
+            connection.On<string, string>("ReceiveLength", (user, message) => uiContext.Post(s => NewMessage(message), null));
         }
 
         private async void btnSend_Click(object sender, EventArgs e)
@@ -41,7 +61,18 @@ namespace ChatClientWinFormsSimberSoft
             string message = null;
             if ((message = tbInputText.Text) != null)
             {
-                await _hub.Invoke("SendMessage", NameUser, message);
+                await connection.InvokeAsync("SendMessage", NameUser, message);
+            }
+
+            tbInputText.Text = null;
+        }
+
+        private async void SendOldMessage(object sender, EventArgs e)
+        {
+            string message = null;
+            if ((message = tbInputText.Text) != null)
+            {
+                await connection.InvokeAsync("SendMessage", NameUser, message);
             }
 
             tbInputText.Text = null;
