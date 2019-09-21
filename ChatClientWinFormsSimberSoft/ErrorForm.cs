@@ -10,9 +10,15 @@ using System.Windows.Forms;
 
 namespace ChatClientWinFormsSimberSoft
 {
-    public partial class Error : Form
+    public partial class ErrorForm : Form
     {
-        public Error()
+        public ErrorForm(string message)
+        {
+            InitializeComponent();
+            lblErrorMessage.Text = message;
+        }
+
+        public ErrorForm()
         {
             InitializeComponent();
         }
