@@ -115,6 +115,7 @@
             this.tbPasswordForRegistration.Name = "tbPasswordForRegistration";
             this.tbPasswordForRegistration.Size = new System.Drawing.Size(107, 20);
             this.tbPasswordForRegistration.TabIndex = 10;
+            this.tbPasswordForRegistration.Text = "qweqwe";
             // 
             // label5
             // 
@@ -151,6 +152,7 @@
             this.tbLoginForRegistration.Name = "tbLoginForRegistration";
             this.tbLoginForRegistration.Size = new System.Drawing.Size(107, 20);
             this.tbLoginForRegistration.TabIndex = 6;
+            this.tbLoginForRegistration.Text = "6@6.6";
             // 
             // tbConfirmPasswordForRegistration
             // 
@@ -158,6 +160,7 @@
             this.tbConfirmPasswordForRegistration.Name = "tbConfirmPasswordForRegistration";
             this.tbConfirmPasswordForRegistration.Size = new System.Drawing.Size(107, 20);
             this.tbConfirmPasswordForRegistration.TabIndex = 13;
+            this.tbConfirmPasswordForRegistration.Text = "qweqwe";
             // 
             // label7
             // 

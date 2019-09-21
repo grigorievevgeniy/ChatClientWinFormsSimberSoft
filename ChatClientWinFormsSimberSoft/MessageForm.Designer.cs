@@ -1,6 +1,6 @@
 ﻿namespace ChatClientWinFormsSimberSoft
 {
-    partial class ErrorForm
+    partial class MessageForm
     {
         /// <summary>
         /// Required designer variable.

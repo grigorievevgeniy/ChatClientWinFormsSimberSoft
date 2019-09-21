@@ -24,7 +24,7 @@ namespace ChatClientWinFormsSimberSoft
         private async void btnEnter_Click(object sender, EventArgs e)
         {
             //WebClient client = new WebClient();
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://localhost:44303/account/token");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://localhost:44303/Account/Token");
             request.Method = "POST";
             string body = "email=" + tbLogin.Text + "&password=" + tbPassword.Text;
             byte[] byteArray = Encoding.UTF8.GetBytes(body);
@@ -63,17 +63,17 @@ namespace ChatClientWinFormsSimberSoft
         {
             if(tbLoginForRegistration.Text == "")
             {
-                Error errorForm = new Error("Заполните поле Email");
+                MessageForm errorForm = new MessageForm("Заполните поле Email");
                 errorForm.ShowDialog();
             }
             else if(tbPasswordForRegistration.Text != tbConfirmPasswordForRegistration.Text)
             {
-                Error errorForm = new Error("Пароль и его подтвержения разные");
+                MessageForm errorForm = new MessageForm("Пароль и его подтвержения разные");
                 errorForm.ShowDialog();
             }
             else
             {
-                string url = "https://localhost:44303/Account/Register";
+                string url = "https://localhost:44303/AccountRegistration/Register";
 
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "POST";
