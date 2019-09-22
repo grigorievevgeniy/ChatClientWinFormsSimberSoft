@@ -57,6 +57,10 @@ namespace ChatClientWinFormsSimberSoft
                 ChatForm.NameUser = tbLogin.Text;
                 Close();
             }
+            else
+            {
+                MessageForm messageForm = new MessageForm("Подключение не удалось");
+            }
         }
 
         private async void btnRegistration_Click(object sender, EventArgs e)

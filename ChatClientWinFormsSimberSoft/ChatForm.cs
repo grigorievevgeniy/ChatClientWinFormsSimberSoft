@@ -32,16 +32,13 @@ namespace ChatClientWinFormsSimberSoft
 
             string url = @"https://localhost:44303/chatHub";
 
-            //connection = new HubConnectionBuilder()
-            //    .WithUrl("http://localhost:53353/ChatHub")
-            //    .Build();
-
+            // Код перезагрузки соединения
             //connection.Closed += async (error) =>
             //{
             //    await Task.Delay(new Random().Next(0, 5) * 1000);
             //    await connection.StartAsync();
             //};
-            
+
             connection = new HubConnectionBuilder()
                 .WithUrl(url, options =>
                 {
@@ -53,18 +50,26 @@ namespace ChatClientWinFormsSimberSoft
 
             //_hub.Invoke("Connect", NameUser);
 
-            connection.On<string, string>("ReceiveLength", (user, message) => uiContext.Post(s => NewMessage(message), null));
+            connection.On<string, string>("ReceiveMessage", (user, message) => uiContext.Post(s => NewMessage(user, message), null));
         }
 
         private async void btnSend_Click(object sender, EventArgs e)
         {
-            string message = null;
-            if ((message = tbInputText.Text) != null)
+            try
             {
-                await connection.InvokeAsync("SendMessage", NameUser, message);
+                string message = null;
+                if ((message = tbInputText.Text) != null)
+                {
+                    await connection.InvokeAsync("SendMessage", NameUser, message);
+                }
+
+                tbInputText.Text = null;
+            }
+            catch (Exception ex)
+            {
+                tbChat.Text = ex.Message;
             }
 
-            tbInputText.Text = null;
         }
 
         private async void SendOldMessage(object sender, EventArgs e)
@@ -78,9 +83,9 @@ namespace ChatClientWinFormsSimberSoft
             tbInputText.Text = null;
         }
 
-        private void NewMessage(object state)
+        private void NewMessage(object user, object message)
         {
-            tbChat.Text = state.ToString() + "\r\n" + tbChat.Text;
+            tbChat.Text = user.ToString() + ": " +message.ToString() + "\r\n" + tbChat.Text;
         }
 
     }
