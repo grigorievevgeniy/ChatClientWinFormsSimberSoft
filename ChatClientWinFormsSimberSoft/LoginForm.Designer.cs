@@ -53,6 +53,7 @@
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(107, 20);
             this.tbLogin.TabIndex = 0;
+            this.tbLogin.Text = "gr1@mail.ru";
             // 
             // btnEnter
             // 
@@ -88,6 +89,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(107, 20);
             this.tbPassword.TabIndex = 4;
+            this.tbPassword.Text = "qweqwe";
             // 
             // label3
             // 
