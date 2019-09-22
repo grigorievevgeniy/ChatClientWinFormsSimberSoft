@@ -67,7 +67,7 @@ namespace ChatClientWinFormsSimberSoft
             }
             catch (Exception ex)
             {
-                tbChat.Text = ex.Message;
+                tbChat.Text = ex.Message + "\r\n" + tbChat.Text;
             }
 
         }
