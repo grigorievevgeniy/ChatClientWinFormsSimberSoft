@@ -26,7 +26,8 @@ namespace ChatClientWinFormsSimberSoft
             //WebClient client = new WebClient();
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://localhost:44303/Account/Token");
             request.Method = "POST";
-            string body = "email=" + tbLogin.Text + "&password=" + tbPassword.Text;
+            //string body = "email=" + tbLogin.Text + "&password=" + tbPassword.Text;
+            string body = "email=" + cbLogin.Text + "&password=" + tbPassword.Text;
             byte[] byteArray = Encoding.UTF8.GetBytes(body);
             request.ContentType = "application/x-www-form-urlencoded";
             request.ContentLength = byteArray.Length;
@@ -54,7 +55,8 @@ namespace ChatClientWinFormsSimberSoft
             // TODO: проверка пустого поля, дублирование логина, максимальная длина...
             if (authResponse.Token != null)
             {
-                ChatForm.NameUser = tbLogin.Text;
+                //ChatForm.NameUser = tbLogin.Text;
+                ChatForm.NameUser = cbLogin.Text;
                 Close();
             }
             else
@@ -109,6 +111,9 @@ namespace ChatClientWinFormsSimberSoft
 
                 tbLogin.Text = tbLoginForRegistration.Text;
                 tbPassword.Text = tbPasswordForRegistration.Text;
+
+                //Поставил временно комбо бокс чтобы не заполнять вручную
+                cbLogin.Text = tbLoginForRegistration.Text;
 
             }
         }

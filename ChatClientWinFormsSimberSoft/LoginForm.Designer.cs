@@ -44,11 +44,12 @@
             this.tbConfirmPasswordForRegistration = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblOr = new System.Windows.Forms.Label();
+            this.cbLogin = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tbLogin
             // 
-            this.tbLogin.Location = new System.Drawing.Point(15, 57);
+            this.tbLogin.Location = new System.Drawing.Point(53, 203);
             this.tbLogin.MaxLength = 12;
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(107, 20);
@@ -59,7 +60,7 @@
             // 
             this.btnEnter.Location = new System.Drawing.Point(15, 144);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(107, 39);
+            this.btnEnter.Size = new System.Drawing.Size(121, 39);
             this.btnEnter.TabIndex = 1;
             this.btnEnter.Text = "Войти";
             this.btnEnter.UseVisualStyleBackColor = true;
@@ -68,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 41);
+            this.label1.Location = new System.Drawing.Point(22, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 2;
@@ -77,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 91);
+            this.label2.Location = new System.Drawing.Point(16, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 13);
             this.label2.TabIndex = 3;
@@ -87,7 +88,7 @@
             // 
             this.tbPassword.Location = new System.Drawing.Point(15, 107);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(107, 20);
+            this.tbPassword.Size = new System.Drawing.Size(121, 20);
             this.tbPassword.TabIndex = 4;
             this.tbPassword.Text = "qweqwe";
             // 
@@ -182,6 +183,19 @@
             this.lblOr.TabIndex = 14;
             this.lblOr.Text = "или";
             // 
+            // cbLogin
+            // 
+            this.cbLogin.FormattingEnabled = true;
+            this.cbLogin.Items.AddRange(new object[] {
+            "admin@simbirsoft.com",
+            "moderator@simbirsoft.com",
+            "user@simbirsoft.com"});
+            this.cbLogin.Location = new System.Drawing.Point(15, 57);
+            this.cbLogin.Name = "cbLogin";
+            this.cbLogin.Size = new System.Drawing.Size(121, 21);
+            this.cbLogin.TabIndex = 15;
+            this.cbLogin.Text = "user@simbirsoft.com";
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnEnter;
@@ -189,6 +203,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(329, 235);
             this.ControlBox = false;
+            this.Controls.Add(this.cbLogin);
             this.Controls.Add(this.lblOr);
             this.Controls.Add(this.tbConfirmPasswordForRegistration);
             this.Controls.Add(this.label7);
@@ -229,5 +244,6 @@
         private System.Windows.Forms.TextBox tbConfirmPasswordForRegistration;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblOr;
+        private System.Windows.Forms.ComboBox cbLogin;
     }
 }

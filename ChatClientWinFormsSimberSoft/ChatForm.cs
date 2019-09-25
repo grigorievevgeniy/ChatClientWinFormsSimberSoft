@@ -67,7 +67,9 @@ namespace ChatClientWinFormsSimberSoft
             }
             catch (Exception ex)
             {
-                tbChat.Text = ex.Message + "\r\n" + tbChat.Text;
+                // TODO разобраться почему выходит исключение
+                // An unexpected error occurred invoking 'SendMessage' on the server.
+                //tbChat.Text = ex.Message + "\r\n" + tbChat.Text;
             }
 
         }
