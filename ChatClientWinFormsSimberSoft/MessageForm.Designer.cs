@@ -53,7 +53,7 @@
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             // 
-            // Error
+            // MessageForm
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -63,8 +63,8 @@
             this.ControlBox = false;
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lblErrorMessage);
-            this.Name = "Error";
-            this.Text = "Ошибка...";
+            this.Name = "MessageForm";
+            this.Text = "Системное сообщение...";
             this.ResumeLayout(false);
             this.PerformLayout();
 
