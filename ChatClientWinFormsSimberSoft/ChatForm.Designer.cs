@@ -29,58 +29,101 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatForm));
-            this.tbInputText = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
             this.tbChat = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tbRooms = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbUsers = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // tbInputText
-            // 
-            this.tbInputText.Location = new System.Drawing.Point(12, 12);
-            this.tbInputText.Name = "tbInputText";
-            this.tbInputText.Size = new System.Drawing.Size(208, 20);
-            this.tbInputText.TabIndex = 0;
-            // 
-            // btnSend
-            // 
-            this.btnSend.Location = new System.Drawing.Point(226, 10);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 23);
-            this.btnSend.TabIndex = 1;
-            this.btnSend.Text = "SEND";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // tbChat
             // 
-            this.tbChat.Location = new System.Drawing.Point(12, 38);
+            this.tbChat.Location = new System.Drawing.Point(180, 12);
             this.tbChat.Multiline = true;
             this.tbChat.Name = "tbChat";
-            this.tbChat.Size = new System.Drawing.Size(289, 222);
+            this.tbChat.Size = new System.Drawing.Size(289, 418);
             this.tbChat.TabIndex = 2;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(180, 436);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(208, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(394, 434);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "SEND";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // tbRooms
+            // 
+            this.tbRooms.Location = new System.Drawing.Point(12, 33);
+            this.tbRooms.Multiline = true;
+            this.tbRooms.Name = "tbRooms";
+            this.tbRooms.Size = new System.Drawing.Size(162, 186);
+            this.tbRooms.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Список доступных комнат";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 247);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Список пользователей";
+            // 
+            // tbUsers
+            // 
+            this.tbUsers.Location = new System.Drawing.Point(12, 268);
+            this.tbUsers.Multiline = true;
+            this.tbUsers.Name = "tbUsers";
+            this.tbUsers.Size = new System.Drawing.Size(162, 189);
+            this.tbUsers.TabIndex = 5;
             // 
             // ChatForm
             // 
-            this.AcceptButton = this.btnSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 272);
+            this.ClientSize = new System.Drawing.Size(479, 467);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbUsers);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbRooms);
             this.Controls.Add(this.tbChat);
-            this.Controls.Add(this.btnSend);
-            this.Controls.Add(this.tbInputText);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChatForm";
-            this.Text = "Добро пожаловать " + NameUser + "!";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbInputText;
-        private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.TextBox tbChat;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbRooms;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbUsers;
     }
 }
 

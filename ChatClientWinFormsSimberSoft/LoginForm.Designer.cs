@@ -49,7 +49,7 @@
             // 
             // tbLogin
             // 
-            this.tbLogin.Location = new System.Drawing.Point(53, 203);
+            this.tbLogin.Location = new System.Drawing.Point(29, 252);
             this.tbLogin.MaxLength = 12;
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(107, 20);
@@ -201,7 +201,7 @@
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 235);
+            this.ClientSize = new System.Drawing.Size(322, 231);
             this.ControlBox = false;
             this.Controls.Add(this.cbLogin);
             this.Controls.Add(this.lblOr);
