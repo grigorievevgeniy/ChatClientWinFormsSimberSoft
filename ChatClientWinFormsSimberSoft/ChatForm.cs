@@ -64,7 +64,7 @@ namespace ChatClientWinFormsSimberSoft
                 string message = null;
                 if ((message = tbInputText.Text) != null)
                 {
-                    await connection.InvokeAsync("SendMessage", NameUser, message);
+                    await connection.InvokeAsync("SendMessage", NameUser, message, NameRoom);
                 }
 
                 tbInputText.Text = null;
