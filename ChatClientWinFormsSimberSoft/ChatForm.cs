@@ -55,6 +55,8 @@ namespace ChatClientWinFormsSimberSoft
             //_hub.Invoke("Connect", NameUser);
 
             connection.On<string, string>("ReceiveMessage", (user, message) => uiContext.Post(s => NewMessage(user, message), null));
+
+            //connection.On<ChatWindow>("ReceiveData", (data) => uiContext.Post(s => NewMessage(data), null));
         }
 
         private async void btnSend_Click(object sender, EventArgs e)
