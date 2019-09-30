@@ -10,5 +10,7 @@ namespace ChatClientWinFormsSimberSoft
     {
         public string Token { get; set; }
         public string Message { get; set; }
+        public string StartMessage { get; set; }
+        public string ListRooms { get; set; }
     }
 }

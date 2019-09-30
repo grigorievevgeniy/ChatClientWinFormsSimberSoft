@@ -19,6 +19,8 @@ namespace ChatClientWinFormsSimberSoft
         internal static string NameUser;
         internal static string NameRoom = "SimbirSoft";
         internal static string Token;
+        internal static string StartMessage;
+        internal static string ListRooms;
 
         public ChatForm()
         {
@@ -30,7 +32,9 @@ namespace ChatClientWinFormsSimberSoft
 
             lblNameRoom.Text = "Вы в комнате " + NameRoom + "!";
             Text = "Добро пожаловать " + NameUser + "!!!";
-            
+            tbRooms.Text = ListRooms;
+            tbChat.Text = StartMessage;
+
             // Контекст потока UI 
             SynchronizationContext uiContext = SynchronizationContext.Current;
 

@@ -51,6 +51,8 @@ namespace ChatClientWinFormsSimberSoft
             AuthResponse authResponse = JsonConvert.DeserializeObject<AuthResponse>(otvetServera);
 
             ChatForm.Token = authResponse.Token;
+            ChatForm.StartMessage = authResponse.StartMessage;
+            ChatForm.ListRooms = authResponse.ListRooms;
 
             // TODO: проверка пустого поля, дублирование логина, максимальная длина...
             if (authResponse.Token != null)
