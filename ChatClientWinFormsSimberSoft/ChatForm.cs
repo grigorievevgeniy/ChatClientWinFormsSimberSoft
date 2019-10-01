@@ -17,10 +17,11 @@ namespace ChatClientWinFormsSimberSoft
         //IHubProxy _hub;
         HubConnection connection;
         internal static string NameUser;
-        internal static string NameRoom = "SimbirSoft";
+        internal static string NameRoom;
+        //NameRoom = "SimbirSoft";
         internal static string Token;
         internal static string StartMessage;
-        internal static string ListRooms;
+        //internal static string ListRooms;
 
         public ChatForm()
         {
@@ -30,10 +31,10 @@ namespace ChatClientWinFormsSimberSoft
 
             InitializeComponent();
 
-            lblNameRoom.Text = "Вы в комнате " + NameRoom + "!";
+            lblNameRoom.Text = "Вы пока не вошли в комнату...";
             Text = "Добро пожаловать " + NameUser + "!!!";
-            tbRooms.Text = ListRooms;
             tbChat.Text = StartMessage;
+            //tbRooms.Text = ListRooms;
 
             // Контекст потока UI 
             SynchronizationContext uiContext = SynchronizationContext.Current;
@@ -97,7 +98,7 @@ namespace ChatClientWinFormsSimberSoft
 
         private void NewMessage(object user, object message)
         {
-            tbChat.Text = user.ToString() + ": " +message.ToString() + "\r\n" + tbChat.Text;
+            tbChat.Text = user.ToString() + ": " + message.ToString() + "\r\n" + tbChat.Text;
         }
 
     }
