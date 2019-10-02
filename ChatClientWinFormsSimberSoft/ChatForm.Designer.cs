@@ -37,6 +37,10 @@
             this.lblUsers = new System.Windows.Forms.Label();
             this.tbUsers = new System.Windows.Forms.TextBox();
             this.lblNameRoom = new System.Windows.Forms.Label();
+            this.tbAllRooms = new System.Windows.Forms.TextBox();
+            this.lblAllRooms = new System.Windows.Forms.Label();
+            this.tbAllUsers = new System.Windows.Forms.TextBox();
+            this.lblAllUsers = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbChat
@@ -44,6 +48,7 @@
             this.tbChat.Location = new System.Drawing.Point(180, 33);
             this.tbChat.Multiline = true;
             this.tbChat.Name = "tbChat";
+            this.tbChat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbChat.Size = new System.Drawing.Size(289, 397);
             this.tbChat.TabIndex = 2;
             // 
@@ -69,6 +74,7 @@
             this.tbRooms.Location = new System.Drawing.Point(12, 33);
             this.tbRooms.Multiline = true;
             this.tbRooms.Name = "tbRooms";
+            this.tbRooms.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbRooms.Size = new System.Drawing.Size(162, 186);
             this.tbRooms.TabIndex = 3;
             // 
@@ -84,18 +90,19 @@
             // lblUsers
             // 
             this.lblUsers.AutoSize = true;
-            this.lblUsers.Location = new System.Drawing.Point(12, 232);
+            this.lblUsers.Location = new System.Drawing.Point(475, 12);
             this.lblUsers.Name = "lblUsers";
-            this.lblUsers.Size = new System.Drawing.Size(124, 13);
+            this.lblUsers.Size = new System.Drawing.Size(135, 13);
             this.lblUsers.TabIndex = 6;
-            this.lblUsers.Text = "Список пользователей";
+            this.lblUsers.Text = "Список польз. в комнате";
             // 
             // tbUsers
             // 
-            this.tbUsers.Location = new System.Drawing.Point(12, 250);
+            this.tbUsers.Location = new System.Drawing.Point(478, 33);
             this.tbUsers.Multiline = true;
             this.tbUsers.Name = "tbUsers";
-            this.tbUsers.Size = new System.Drawing.Size(162, 205);
+            this.tbUsers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbUsers.Size = new System.Drawing.Size(162, 186);
             this.tbUsers.TabIndex = 5;
             // 
             // lblNameRoom
@@ -107,15 +114,55 @@
             this.lblNameRoom.TabIndex = 7;
             this.lblNameRoom.Text = "Вы в комнате ...";
             // 
+            // tbAllRooms
+            // 
+            this.tbAllRooms.Location = new System.Drawing.Point(15, 250);
+            this.tbAllRooms.Multiline = true;
+            this.tbAllRooms.Name = "tbAllRooms";
+            this.tbAllRooms.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbAllRooms.Size = new System.Drawing.Size(162, 205);
+            this.tbAllRooms.TabIndex = 3;
+            // 
+            // lblAllRooms
+            // 
+            this.lblAllRooms.AutoSize = true;
+            this.lblAllRooms.Location = new System.Drawing.Point(12, 232);
+            this.lblAllRooms.Name = "lblAllRooms";
+            this.lblAllRooms.Size = new System.Drawing.Size(110, 13);
+            this.lblAllRooms.TabIndex = 4;
+            this.lblAllRooms.Text = "Список всех комнат";
+            // 
+            // tbAllUsers
+            // 
+            this.tbAllUsers.Location = new System.Drawing.Point(475, 250);
+            this.tbAllUsers.Multiline = true;
+            this.tbAllUsers.Name = "tbAllUsers";
+            this.tbAllUsers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbAllUsers.Size = new System.Drawing.Size(162, 205);
+            this.tbAllUsers.TabIndex = 5;
+            // 
+            // lblAllUsers
+            // 
+            this.lblAllUsers.AutoSize = true;
+            this.lblAllUsers.Location = new System.Drawing.Point(475, 232);
+            this.lblAllUsers.Name = "lblAllUsers";
+            this.lblAllUsers.Size = new System.Drawing.Size(150, 13);
+            this.lblAllUsers.TabIndex = 6;
+            this.lblAllUsers.Text = "Список всех пользователей";
+            // 
             // ChatForm
             // 
             this.AcceptButton = this.btnSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 467);
+            this.ClientSize = new System.Drawing.Size(650, 473);
             this.Controls.Add(this.lblNameRoom);
+            this.Controls.Add(this.lblAllUsers);
             this.Controls.Add(this.lblUsers);
+            this.Controls.Add(this.tbAllUsers);
+            this.Controls.Add(this.lblAllRooms);
             this.Controls.Add(this.tbUsers);
+            this.Controls.Add(this.tbAllRooms);
             this.Controls.Add(this.lblRooms);
             this.Controls.Add(this.tbRooms);
             this.Controls.Add(this.tbChat);
@@ -138,6 +185,10 @@
         private System.Windows.Forms.Label lblUsers;
         private System.Windows.Forms.TextBox tbUsers;
         private System.Windows.Forms.Label lblNameRoom;
+        private System.Windows.Forms.TextBox tbAllRooms;
+        private System.Windows.Forms.Label lblAllRooms;
+        private System.Windows.Forms.TextBox tbAllUsers;
+        private System.Windows.Forms.Label lblAllUsers;
     }
 }
 

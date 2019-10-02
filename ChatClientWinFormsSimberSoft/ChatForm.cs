@@ -80,14 +80,14 @@ namespace ChatClientWinFormsSimberSoft
                 lblNameRoom.Text = "Вы в комнате " + NameRoom;
             }
 
-            if (dataFromServer.ListRooms != null)
+            if (dataFromServer.ListAvailableRooms != null)
             {
-                tbRooms.Text = dataFromServer.ListRooms;
+                tbRooms.Text = dataFromServer.ListAvailableRooms;
             }
 
-            if (dataFromServer.ListUsers != null)
+            if (dataFromServer.ListMembers != null)
             {
-                tbUsers.Text = dataFromServer.ListUsers;
+                tbUsers.Text = dataFromServer.ListMembers;
             }
         }
 
