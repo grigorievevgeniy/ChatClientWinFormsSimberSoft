@@ -62,14 +62,32 @@ namespace ChatClientWinFormsSimberSoft
 
             //connection.On<string, string>("ReceiveMessage", (user, message) => uiContext.Post(s => NewMessage(user, message), null));
 
-            connection.On<ChatData>("ReceiveData", data => uiContext.Post(s => NewMessage(data), null));
+            connection.On<ChatData>("ReceiveData", dataFromServer => uiContext.Post(s => NewMessage(dataFromServer), null));
         }
 
-        private void NewMessage(ChatData data)
+        private void NewMessage(ChatData dataFromServer)
         {
             //if (NameRoom == data.Room)
             {
-                tbChat.Text = data.User + ": " + data.Message + "\r\n" + tbChat.Text;
+                tbChat.Text = dataFromServer.User + ": " + dataFromServer.Message + "\r\n" + tbChat.Text;
+            }
+
+            // TODO предусмотреть, описать если сообщения пришли в другую комнату
+
+            if (dataFromServer.Room != null)
+            {
+                NameRoom = dataFromServer.Room;
+                lblNameRoom.Text = "Вы в комнате " + NameRoom;
+            }
+
+            if (dataFromServer.ListRooms != null)
+            {
+                tbRooms.Text = dataFromServer.ListRooms;
+            }
+
+            if (dataFromServer.ListUsers != null)
+            {
+                tbUsers.Text = dataFromServer.ListUsers;
             }
         }
 
@@ -77,15 +95,24 @@ namespace ChatClientWinFormsSimberSoft
         {
             try
             {
-                if (NameRoom == "" && tbInputText.Text != "//start")
+                if (NameRoom == "" &&
+                    tbInputText.Text != "//start" &&
+                    tbInputText.Text != "//si" &&
+                    !tbInputText.Text.StartsWith("//room create ") &&
+                    !tbInputText.Text.StartsWith("//room enter "))
                 {
                     tbChat.Text = "Вы не вошли не в одну комнату. Следуйте инструкциям. \r\n\r\n" + tbChat.Text;
                     tbInputText.Text = null;
                 }
                 else if (tbInputText.Text != null)
                 {
-                    ChatData data = new ChatData() { User = NameUser, Message = tbInputText.Text, Room = NameRoom };
-                    await connection.InvokeAsync("SendMessage", data);
+                    ChatData dataFromClient = new ChatData()
+                    {
+                        User = NameUser,
+                        Message = tbInputText.Text,
+                        Room = NameRoom
+                    };
+                    await connection.InvokeAsync("SendMessage", dataFromClient);
                     tbInputText.Text = null;
                 }
             }
