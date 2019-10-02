@@ -67,7 +67,7 @@ namespace ChatClientWinFormsSimberSoft
 
         private void NewMessage(ChatData dataFromServer)
         {
-            //if (NameRoom == data.Room)
+            //if (NameRoom == dataFromServer.Room && NameRoom != "" && dataFromServer.Room != null)
             {
                 tbChat.Text = dataFromServer.User + ": " + dataFromServer.Message + "\r\n" + tbChat.Text;
             }
@@ -85,9 +85,19 @@ namespace ChatClientWinFormsSimberSoft
                 tbRooms.Text = dataFromServer.ListAvailableRooms;
             }
 
+            if (dataFromServer.ListAllRooms != null)
+            {
+                tbAllRooms.Text = dataFromServer.ListAllRooms;
+            }
+
             if (dataFromServer.ListMembers != null)
             {
                 tbUsers.Text = dataFromServer.ListMembers;
+            }
+
+            if (dataFromServer.ListAllUsers != null)
+            {
+                tbAllUsers.Text = dataFromServer.ListAllUsers;
             }
         }
 
