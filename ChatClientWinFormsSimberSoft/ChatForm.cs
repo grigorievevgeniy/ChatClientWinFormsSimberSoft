@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace ChatClientWinFormsSimberSoft
         //IHubProxy _hub;
         HubConnection connection;
         internal static string NameUser;
-        internal static string NameRoom;
+        internal static string NameRoom = "";
         //NameRoom = "SimbirSoft";
         internal static string Token;
         internal static string StartMessage;
@@ -59,22 +60,34 @@ namespace ChatClientWinFormsSimberSoft
 
             //_hub.Invoke("Connect", NameUser);
 
-            connection.On<string, string>("ReceiveMessage", (user, message) => uiContext.Post(s => NewMessage(user, message), null));
+            //connection.On<string, string>("ReceiveMessage", (user, message) => uiContext.Post(s => NewMessage(user, message), null));
 
-            //connection.On<ChatWindow>("ReceiveData", (data) => uiContext.Post(s => NewMessage(data), null));
+            connection.On<ChatData>("ReceiveData", data => uiContext.Post(s => NewMessage(data), null));
+        }
+
+        private void NewMessage(ChatData data)
+        {
+            //if (NameRoom == data.Room)
+            {
+                tbChat.Text = data.User + ": " + data.Message + "\r\n" + tbChat.Text;
+            }
         }
 
         private async void btnSend_Click(object sender, EventArgs e)
         {
             try
             {
-                string message = null;
-                if ((message = tbInputText.Text) != null)
+                if (NameRoom == "" && tbInputText.Text != "//start")
                 {
-                    await connection.InvokeAsync("SendMessage", NameUser, message, NameRoom);
+                    tbChat.Text = "Вы не вошли не в одну комнату. Следуйте инструкциям. \r\n\r\n" + tbChat.Text;
+                    tbInputText.Text = null;
                 }
-
-                tbInputText.Text = null;
+                else if (tbInputText.Text != null)
+                {
+                    ChatData data = new ChatData() { User = NameUser, Message = tbInputText.Text, Room = NameRoom };
+                    await connection.InvokeAsync("SendMessage", data);
+                    tbInputText.Text = null;
+                }
             }
             catch (Exception ex)
             {
