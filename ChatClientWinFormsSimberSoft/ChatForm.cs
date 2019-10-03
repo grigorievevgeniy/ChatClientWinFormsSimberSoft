@@ -35,6 +35,7 @@ namespace ChatClientWinFormsSimberSoft
             lblNameRoom.Text = "Вы пока не вошли в комнату...";
             Text = "Добро пожаловать " + NameUser + "!!!";
             tbChat.Text = StartMessage;
+            tbInputText.Text = "//start";
             //tbRooms.Text = ListRooms;
 
             // Контекст потока UI 
@@ -67,12 +68,19 @@ namespace ChatClientWinFormsSimberSoft
 
         private void NewMessage(ChatData dataFromServer)
         {
-            //if (NameRoom == dataFromServer.Room && NameRoom != "" && dataFromServer.Room != null)
+            if (dataFromServer.Message != null)
             {
                 tbChat.Text = dataFromServer.User + ": " + dataFromServer.Message + "\r\n" + tbChat.Text;
             }
 
             // TODO предусмотреть, описать если сообщения пришли в другую комнату
+
+
+
+            if (dataFromServer.SystemMessage != null)
+            {
+                tbChat.Text = dataFromServer.SystemMessage + "\r\n\r\n" + tbChat.Text;
+            }
 
             if (dataFromServer.Room != null)
             {
