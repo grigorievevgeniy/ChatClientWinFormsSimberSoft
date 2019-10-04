@@ -35,7 +35,7 @@ namespace ChatClientWinFormsSimberSoft
             lblNameRoom.Text = "Вы пока не вошли в комнату...";
             Text = "Добро пожаловать " + NameUser + "!!!";
             tbChat.Text = StartMessage;
-            tbInputText.Text = "//start";
+            tbInputText.Text = "//room enter ";
             //tbRooms.Text = ListRooms;
 
             // Контекст потока UI 
@@ -117,9 +117,9 @@ namespace ChatClientWinFormsSimberSoft
             try
             {
                 if (NameRoom == "" &&
-                    tbInputText.Text != "//start" &&
                     tbInputText.Text != "//si" &&
                     !tbInputText.Text.StartsWith("//room create ") &&
+                    !tbInputText.Text.StartsWith("//room connect ") &&
                     !tbInputText.Text.StartsWith("//room enter "))
                 {
                     tbChat.Text = "Вы не вошли не в одну комнату. Следуйте инструкциям. \r\n\r\n" + tbChat.Text;
