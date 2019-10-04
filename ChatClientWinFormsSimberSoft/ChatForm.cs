@@ -59,6 +59,9 @@ namespace ChatClientWinFormsSimberSoft
 
             connection.StartAsync();
 
+            StartChatForm startChatForm = new StartChatForm(NameUser, connection);
+            startChatForm.ShowDialog();
+
             //_hub.Invoke("Connect", NameUser);
 
             //connection.On<string, string>("ReceiveMessage", (user, message) => uiContext.Post(s => NewMessage(user, message), null));
@@ -73,7 +76,7 @@ namespace ChatClientWinFormsSimberSoft
                 tbChat.Text = dataFromServer.User + ": " + dataFromServer.Message + "\r\n" + tbChat.Text;
             }
 
-            // TODO предусмотреть, описать если сообщения пришли в другую комнату
+            //TODO предусмотреть, описать если сообщения пришли в другую комнату
 
 
 
