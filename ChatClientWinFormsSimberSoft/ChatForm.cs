@@ -116,13 +116,9 @@ namespace ChatClientWinFormsSimberSoft
         {
             try
             {
-                if (NameRoom == "" &&
-                    tbInputText.Text != "//si" &&
-                    !tbInputText.Text.StartsWith("//room create ") &&
-                    !tbInputText.Text.StartsWith("//room connect ") &&
-                    !tbInputText.Text.StartsWith("//room enter "))
+                if (NameRoom == "" && !tbInputText.Text.StartsWith("//"))
                 {
-                    tbChat.Text = "Вы не вошли не в одну комнату. Следуйте инструкциям. \r\n\r\n" + tbChat.Text;
+                    tbChat.Text = "Вы не можете отправлять сообщения. Войдите в комнату. \r\n" + tbChat.Text;
                     tbInputText.Text = null;
                 }
                 else if (tbInputText.Text != null)
