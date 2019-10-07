@@ -116,7 +116,14 @@ namespace ChatClientWinFormsSimberSoft
         {
             try
             {
-                if (NameRoom == "" && !tbInputText.Text.StartsWith("//"))
+                if (tbInputText.Text == "//help")
+                {
+                    HelpForm helpForm = new HelpForm(tbAllRooms.Text, tbAllUsers.Text);
+                    helpForm.Show();
+
+                    tbInputText.Text = helpForm.Command;
+                }
+                else if (NameRoom == "" && !tbInputText.Text.StartsWith("//"))
                 {
                     tbChat.Text = "Вы не можете отправлять сообщения. Войдите в комнату. \r\n" + tbChat.Text;
                     tbInputText.Text = null;
