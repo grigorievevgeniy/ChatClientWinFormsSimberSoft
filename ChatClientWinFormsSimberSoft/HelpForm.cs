@@ -47,9 +47,6 @@ namespace ChatClientWinFormsSimberSoft
             }
 
             Close();
-
-            //TODO передать значение
-            //http://www.cyberforum.ru/windows-forms/thread110436.html
         }
     }
 }

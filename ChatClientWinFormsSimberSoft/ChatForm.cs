@@ -78,8 +78,6 @@ namespace ChatClientWinFormsSimberSoft
 
             //TODO предусмотреть, описать если сообщения пришли в другую комнату
 
-
-
             if (dataFromServer.SystemMessage != null)
             {
                 tbChat.Text = dataFromServer.SystemMessage + "\r\n\r\n" + tbChat.Text;
@@ -119,14 +117,14 @@ namespace ChatClientWinFormsSimberSoft
                 if (tbInputText.Text == "//help")
                 {
                     HelpForm helpForm = new HelpForm(tbAllRooms.Text, tbAllUsers.Text);
-                    helpForm.Show();
+                    helpForm.ShowDialog();
 
                     tbInputText.Text = helpForm.Command;
                 }
                 else if (NameRoom == "" && !tbInputText.Text.StartsWith("//"))
                 {
                     tbChat.Text = "Вы не можете отправлять сообщения. Войдите в комнату. \r\n" + tbChat.Text;
-                    tbInputText.Text = null;
+                    //tbInputText.Text = null;
                 }
                 else if (tbInputText.Text != null)
                 {
@@ -142,9 +140,7 @@ namespace ChatClientWinFormsSimberSoft
             }
             catch (Exception ex)
             {
-                // TODO разобраться почему выходит исключение
-                // An unexpected error occurred invoking 'SendMessage' on the server.
-                tbChat.Text = ex.Message + "\r\n" + tbChat.Text;
+                tbChat.Text = "Ошибка клиента: " + ex.Message + "\r\n" + tbChat.Text;
             }
 
         }
